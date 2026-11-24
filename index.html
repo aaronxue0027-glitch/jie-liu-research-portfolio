@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Jie Liu · Research Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f4ed;
+      --ink: #292229;
+      --muted: #675b62;
+      --accent: #6c4056;
+      --rule: #d8c9ca;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; border-top: 5px solid var(--accent); }
+    a { color: var(--accent); text-underline-offset: .22em; }
+    a:hover { color: var(--ink); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { font-family: var(--serif); }
+    [id] { scroll-margin-top: 1.5rem; }
+    .frame { width: min(calc(100% - 112px), 1120px); margin-inline: auto; }
+    .masthead {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-block: 40px 35px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(4rem, 7vw, 6.2rem);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -.075em;
+      margin: 5px 0 9px -.046em;
+    }
+    .discipline { color: var(--muted); font-size: .89rem; line-height: 1.6; }
+    nav { display: flex; flex-wrap: wrap; gap: 5px 19px; padding-bottom: 2px; }
+    nav a {
+      align-content: center;
+      min-height: 32px;
+      color: var(--ink);
+      font-size: .79rem;
+      font-weight: 650;
+      white-space: nowrap;
+      text-decoration-color: var(--rule);
+      text-decoration-thickness: 1px;
+    }
+    nav a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.13fr) minmax(0, 1fr);
+      column-gap: clamp(40px, 6vw, 86px);
+      padding-block: 35px 64px;
+    }
+    .left, .right { min-width: 0; }
+    h2 {
+      font-size: clamp(1.65rem, 2.25vw, 1.9rem);
+      line-height: 1.14;
+      font-weight: 500;
+      letter-spacing: -.038em;
+      margin-bottom: 16px;
+    }
+    h3 {
+      font-size: 1.47rem;
+      font-weight: 500;
+      line-height: 1.16;
+      letter-spacing: -.028em;
+    }
+    .description {
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.61;
+      margin-block: .5rem .65rem;
+      max-width: 62ch;
+    }
+    .material-link {
+      display: inline-block;
+      font-size: .83rem;
+      font-weight: 650;
+      width: fit-content;
+      padding-block: 2px;
+    }
+    .catalog { border-top: 1px solid var(--rule); }
+    .catalog h3 {
+      font-family: var(--sans);
+      font-size: .84rem;
+      font-weight: 680;
+      letter-spacing: .015em;
+      padding: 14px 0 10px;
+    }
+    details { border-bottom: 1px solid var(--rule); }
+    summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      min-height: 45px;
+      padding: 9px 2px 9px 0;
+      cursor: pointer;
+      font-size: .87rem;
+      line-height: 1.4;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+" / ""; color: var(--accent); font-size: 1.18rem; }
+    details[open] > summary::after { content: "−" / ""; }
+    summary:hover { color: var(--accent); }
+    .report-list { list-style: none; padding: 0 16px 0 0; margin: 0; }
+    .report-list li { margin: 0 0 16px; }
+    .report-list strong { font-size: .89rem; }
+    .report-list .description { margin-block: .25rem .25rem; font-size: .85rem; }
+    .catalog > .report-list strong { font-size: 1rem; }
+    .catalog > details:first-of-type { border-top: 1px solid var(--rule); }
+    .paper {
+      border-top: 1px solid var(--rule);
+      margin-top: 27px;
+      padding-top: 21px;
+    }
+    .paper h2 { font-size: 1.65rem; margin-bottom: 9px; }
+    .paper h3 { font-size: 1.24rem; }
+    .demo + .demo { margin-top: 27px; }
+    .demo h3 { margin-bottom: 5px; }
+    .demo .description { font-size: .85rem; margin-block: 0 10px; }
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      border-radius: 3px;
+      background: #171416;
+      box-shadow: 0 0 0 1px rgb(41 34 41 / 13%);
+    }
+    .highlights {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+    }
+    .highlights h2 { font-size: 1.55rem; margin-bottom: 5px; }
+    .highlights p { color: var(--muted); font-size: .83rem; }
+
+    @media (max-width: 900px) {
+      .frame { width: calc(100% - 52px); }
+      .masthead { align-items: flex-start; flex-direction: column; gap: 15px; }
+    }
+    @media (max-width: 700px) {
+      .frame { width: calc(100% - 40px); }
+      .masthead { padding-block: 24px 18px; gap: 10px; }
+      h1 { font-size: clamp(3.45rem, 16vw, 4.6rem); }
+      .discipline { font-size: .84rem; }
+      nav { gap: 1px 14px; }
+      nav a { min-height: 40px; }
+      main { grid-template-columns: minmax(0, 1fr); row-gap: 33px; padding-top: 24px; }
+      h2 { font-size: clamp(1.48rem, 6vw, 1.85rem); margin-bottom: 14px; }
+      summary, .material-link { min-height: 44px; align-content: center; }
+      .paper { margin-top: 22px; padding-top: 17px; }
+      .right { border-top: 1px solid var(--rule); padding-top: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead frame">
+    <div>
+      <p class="eyebrow">Research Portfolio</p>
+      <h1>Jie Liu</h1>
+      <p class="discipline">HCI · Generative AI for Games · Quantitative Analytics</p>
+    </div>
+    <nav aria-label="Portfolio sections">
+      <a href="#research">Research</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#sattva">AI &amp; HCI</a>
+      <a href="#demos">Game Demos</a>
+    </nav>
+  </header>
+
+  <main class="frame">
+    <div class="left">
+      <section id="research" aria-labelledby="research-heading">
+        <h2 id="research-heading">Baidu Games Industry &amp; User Research</h2>
+        <div class="catalog">
+          <h3>Research catalog</h3>
+          <ul class="report-list">
+            <li>
+              <strong>Interactive Movie Games Study</strong>
+              <p class="description">Analyzes branching choices, viewpoint switching, and the player actions that trigger changes in interactive film narratives.</p>
+              <a class="material-link" href="https://drive.google.com/file/d/11w1XeWlkrq4cPW_eyViMKBQet9fGvmne/view?usp=drive_link">Read the study (PDF)</a>
+            </li>
+          </ul>
+          <details>
+            <summary>Interactive Narrative &amp; Game Systems</summary>
+            <ul class="report-list">
+              <li><strong>Narrative &amp; Historical Mobile Games Study (Confidential)</strong></li>
+              <li><strong>Blockchain Games Study (40 pp.)</strong></li>
+              <li>
+                <strong>Mobile Games Study (30 pp.)</strong>
+                <p class="description">Benchmarks China’s 2020 mobile games market across publishers, genre penetration, usage, and commercial performance.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1r46RB1z17tVpDGd6y8pqudVLCh7J1UXM/view?usp=drive_link" aria-label="Open Mobile Games Study (PDF)">Read the report (PDF)</a>
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Virtual Avatars &amp; Female-Oriented Content</summary>
+            <ul class="report-list">
+              <li>
+                <strong>Female-Oriented Manga Study (56 pp.)</strong>
+                <p class="description">Classifies romance, heroine-led, and danmei titles and compares demographics, production workflows, rankings, and monetization.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1SiKEdNHu9d-nZLHZ3TbiLR7dqhlx3h_E/view?usp=drive_link" aria-label="Open Female-Oriented Manga Study (PDF)">Read the report (PDF)</a>
+              </li>
+              <li>
+                <strong>Representative Female-Oriented Manga Study (76 pp.)</strong>
+                <p class="description">Compares popular and paid-chart titles by genre, character setup, and plot structure.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1-MeO5Pf5N8p-UJd3-W304J7O33RqRRuA/view?usp=drive_link" aria-label="Open Representative Female-Oriented Manga Study (PDF)">Read the report (PDF)</a>
+              </li>
+              <li>
+                <strong>Virtual Idol Study (57 pp.)</strong>
+                <p class="description">Traces virtual idols in China and Japan and compares formats, fan motivations, willingness to pay, and business models.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1O6m8hATtiHj5CISbinmJuwOrShMPKJRz/view?usp=drive_link" aria-label="Open Virtual Idol Study (PDF)">Read the report (PDF)</a>
+              </li>
+              <li>
+                <strong>Virtual UP Host Study (28 pp.)</strong>
+                <p class="description">Compares virtual creators on Douyin and Bilibili through case studies of their content and monetization.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1W-PuN9jWxlzwzR1ggQMKhSXVoCRLvdZp/view?usp=drive_link" aria-label="Open Virtual UP Host Study (PDF)">Read the report (PDF)</a>
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Interactive Media &amp; User Engagement</summary>
+            <ul class="report-list">
+              <li>
+                <strong>China Interactive Video Study (14 pp.)</strong>
+                <p class="description">Benchmarks iQIYI, Tencent Video, and Youku across interactive catalogs, formats, technical standards, and audience preferences.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1bNje560qh3wVyXm3t63iK0LraQRdQleG/view?usp=drive_link" aria-label="Open China Interactive Video Study (PDF)">Read the report (PDF)</a>
+              </li>
+              <li>
+                <strong>China Short-Video Platforms Study (41 pp.)</strong>
+                <p class="description">Compares Douyin, Kuaishou, Xiaohongshu, and WeChat Channels by content, creator reach, audience, and commercialization.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1WZbNpSRV_KH8RHci0EGR4xlgBW8zsHLC/view?usp=drive_link" aria-label="Open China Short-Video Platforms Study (PDF)">Read the report (PDF)</a>
+              </li>
+            </ul>
+          </details>
+          <details>
+            <summary>Game Communication &amp; Player Communities</summary>
+            <ul class="report-list">
+              <li>
+                <strong>Game Live Streaming Study (39 pp.)</strong>
+                <p class="description">Examines China’s streaming platforms and creator ecosystem alongside viewer participation, spending, and loyalty.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/1fzPmCbvZi362fdZcwD0xuquEiIbu2Etb/view?usp=drive_link" aria-label="Open Game Live Streaming Study (PDF)">Read the report (PDF)</a>
+              </li>
+              <li>
+                <strong>Game New Media Marketing Models Study (53 pp.)</strong>
+                <p class="description">Examines promotion channels and audience preferences by genre, with a case study on launch promotion and community-created content.</p>
+                <a class="material-link" href="https://drive.google.com/file/d/18cp0iVOkpzwp8YZSPlLk3yL9070fU0Dj/view?usp=drive_link" aria-label="Open Game New Media Marketing Models Study (PDF)">Read the report (PDF)</a>
+              </li>
+            </ul>
+          </details>
+        </div>
+      </section>
+      <section class="paper" id="thesis" aria-labelledby="thesis-heading">
+        <h2 id="thesis-heading">Master’s Thesis</h2>
+        <h3>Financial Evaluation of Baidu Games’ Profitability Model</h3>
+        <p class="description">MPAcc thesis, Liaoning Technical University (2022). Uses entropy weighting to evaluate Baidu Games’ 2018–2021 performance across five dimensions.</p>
+        <a class="material-link" href="https://drive.google.com/file/d/1g7CSXwiBkYnaKsTGUN5_GkN_yIIT7aXk/view?usp=drive_link">Read the thesis (PDF)</a>
+      </section>
+      <section class="paper" id="sattva" aria-labelledby="sattva-heading">
+        <h2 id="sattva-heading">AI &amp; HCI Research Project</h2>
+        <h3>Sattva Dynamic Persona Engine</h3>
+        <p class="description">Proposes a character engine that separates persistent persona from short-term state and records the evidence behind decisions in games and VR.</p>
+        <a class="material-link" href="https://drive.google.com/file/d/1YZ2W1O7qraX0ipsMidww0e4aD4YVNZ9P/view?usp=drive_link">Read the pitch deck (PDF)</a>
+      </section>
+    </div>
+    <div class="right">
+      <section id="demos" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Game Demo Videos</h2>
+        <article class="demo" aria-labelledby="hardwood-heading">
+          <h3 id="hardwood-heading">Basketball Manager: Hardwood</h3>
+          <p class="description">A 5-on-5 match sequence showing simulated player movement and defense.</p>
+          <video controls playsinline preload="metadata" aria-labelledby="hardwood-heading" poster="assets/Studio_Hardwood_Poster.jpg"
+            src="assets/01_Above_The_Hardwood_Notion.mp4"></video>
+        </article>
+        <article class="demo" aria-labelledby="wildwood-heading">
+          <h3 id="wildwood-heading">Wildwood Haven</h3>
+          <p class="description">Third-person exploration through a village, showing character movement and the game environment.</p>
+          <video controls playsinline preload="metadata" aria-labelledby="wildwood-heading" poster="assets/Studio_Wildwood_Poster.jpg"
+            src="assets/Wildwood_Haven_20s_BGM_Rebuilt.mp4"></video>
+        </article>
+      </section>
+      <section class="highlights" aria-labelledby="highlights-heading">
+        <h2 id="highlights-heading">Highlights</h2>
+        <p>Work in progress</p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

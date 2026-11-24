@@ -122,9 +122,31 @@
       list-style: none;
     }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+" / ""; color: var(--accent); font-size: 1.18rem; }
-    details[open] > summary::after { content: "−" / ""; }
-    summary:hover { color: var(--accent); }
+    summary:hover, summary:focus-visible {
+      color: var(--accent);
+      background: #f0e8e6;
+    }
+    details[open] > summary { color: var(--accent); }
+    .catalog-state {
+      display: grid;
+      grid-template-columns: 1fr 1em;
+      align-items: center;
+      justify-items: end;
+      gap: .4rem;
+      min-width: 6.7rem;
+      color: var(--accent);
+      font-size: .73rem;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+    .catalog-state::after { content: "+"; font-size: 1.1rem; }
+    .catalog-state .when-open,
+    details[open] > summary .when-closed { display: none; }
+    details[open] > summary .when-open { display: inline; }
+    details[open] > summary .catalog-state::after { content: "−"; }
+    @media (prefers-reduced-motion: no-preference) {
+      summary { transition: background-color 150ms ease, color 150ms ease; }
+    }
     .report-list { list-style: none; padding: 0 16px 0 0; margin: 0; }
     .report-list li { margin: 0 0 16px; }
     .report-list strong { font-size: .89rem; }
@@ -206,7 +228,13 @@
             </li>
           </ul>
           <details>
-            <summary>Interactive Narrative &amp; Game Systems</summary>
+            <summary>
+              <span>Interactive Narrative &amp; Game Systems</span>
+              <span class="catalog-state" aria-hidden="true">
+                <span class="when-closed">View reports</span>
+                <span class="when-open">Hide reports</span>
+              </span>
+            </summary>
             <ul class="report-list">
               <li><strong>Narrative &amp; Historical Mobile Games Study (Confidential)</strong></li>
               <li><strong>Blockchain Games Study (40 pp.)</strong></li>
@@ -218,7 +246,13 @@
             </ul>
           </details>
           <details>
-            <summary>Virtual Avatars &amp; Female-Oriented Content</summary>
+            <summary>
+              <span>Virtual Avatars &amp; Female-Oriented Content</span>
+              <span class="catalog-state" aria-hidden="true">
+                <span class="when-closed">View reports</span>
+                <span class="when-open">Hide reports</span>
+              </span>
+            </summary>
             <ul class="report-list">
               <li>
                 <strong>Female-Oriented Manga Study (56 pp.)</strong>
@@ -243,7 +277,13 @@
             </ul>
           </details>
           <details>
-            <summary>Interactive Media &amp; User Engagement</summary>
+            <summary>
+              <span>Interactive Media &amp; User Engagement</span>
+              <span class="catalog-state" aria-hidden="true">
+                <span class="when-closed">View reports</span>
+                <span class="when-open">Hide reports</span>
+              </span>
+            </summary>
             <ul class="report-list">
               <li>
                 <strong>China Interactive Video Study (14 pp.)</strong>
@@ -258,7 +298,13 @@
             </ul>
           </details>
           <details>
-            <summary>Game Communication &amp; Player Communities</summary>
+            <summary>
+              <span>Game Communication &amp; Player Communities</span>
+              <span class="catalog-state" aria-hidden="true">
+                <span class="when-closed">View reports</span>
+                <span class="when-open">Hide reports</span>
+              </span>
+            </summary>
             <ul class="report-list">
               <li>
                 <strong>Game Live Streaming Study (39 pp.)</strong>
